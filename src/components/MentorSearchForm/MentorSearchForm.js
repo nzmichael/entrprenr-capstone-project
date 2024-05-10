@@ -18,14 +18,26 @@ const MentorSearchForm = ({ onSearch }) => {
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
-    // console.log('Submitting search with query:', searchQuery, 'and filter:', selectedFilter);
+    if (!searchQuery) {
+      console.error('Search query cannot be empty');
+      return;
+    }
+
     try {
-      const response = await axios.get('http://localhost:8080/search', {
-        params: { name: searchQuery, filter: selectedFilter }
-      });
+      let url = `http://localhost:8080/mentors/search`;
+      const params = {};
+      if (selectedFilter === 'name') {
+        params.name = searchQuery;
+      } else if (selectedFilter === 'specialty') {
+        params.specialty = searchQuery;
+      } else if (selectedFilter === 'industries') {
+        params.industries = searchQuery;
+      }
+      const response = await axios.get(url, { params });
+      console.log(response.data); 
       onSearch(response.data);
       setSearchQuery('');
-      navigate('/search-results');
+      navigate('/mentors/search');
     } catch (error) {
       console.error('Error searching for mentors:', error);
     }
@@ -45,10 +57,10 @@ const MentorSearchForm = ({ onSearch }) => {
         onChange={handleFilterChange}
         className="mentor-search-form__select"
       >
-        <option value="" disabled>Filter By</option>
+        <option value="">Filter By</option>
+        <option value="name">Name</option>
         <option value="specialty">Specialty</option>
         <option value="industries">Industries</option>
-        <option value="name">Name</option>
       </select>
       <button type="submit" className="mentor-search-form__submit">Search</button>
     </form>

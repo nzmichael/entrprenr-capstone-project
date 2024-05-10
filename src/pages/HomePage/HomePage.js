@@ -20,8 +20,8 @@ const HomePage = () => {
         setFeaturedMentors(response.data);
         console.log('Featured mentors:', response.data);
       } catch (error) {
-        console.error('Error fetching featured mentors:', error);
-        setError('Error fetching featured mentors. Please try again later.');
+        console.error('Error getting featured mentors:', error);
+        setError('Error getting featured mentors. Please try again later.');
       } finally {
         setLoading(false);
       }
@@ -37,7 +37,7 @@ const HomePage = () => {
         <img src={heroImage} alt="Hero" />
         <div className="hero-text">
           <h1 className="hero-heading">Starting a business?</h1>
-          <p className="hero-title">You're in the right place!</p>
+          <Link className="hero-link" to="/mentors/search"><p className="hero-title">You're in the right place!</p></Link>
         </div>
       </div>
       <section className="home-section">
@@ -47,7 +47,7 @@ const HomePage = () => {
         <div className="home-section__text">
           <h2 className="home-section__title">What can mentoring do for you</h2>
           <p className="home-section__description">Mentoring can provide invaluable support and guidance as you navigate your professional or personal journey. A mentor can offer insights, share experiences, and provide advice to help you grow and achieve your goals. Whether you're seeking career advancement, personal development, or simply looking for someone to offer perspective and encouragement, a mentor can be a trusted ally on your path to success.</p>
-          <button className="home-section__button">Learn More</button>
+          <Link to="/article" ><button className="home-section__button">Learn More</button></Link>
         </div>
       </section>
       <section className="home-section">
@@ -55,7 +55,7 @@ const HomePage = () => {
           <h2 className="home-section__title">The Transformative Impact of Mentorship</h2>
           <p className="home-section__testimonial">"My mentors have been instrumental in shaping my journey, offering invaluable insights that have become the bedrock of my professional advancement. Their guidance has not only enriched my career but has also painted a broader canvas for my life, a gift I consider truly priceless. Additionally, they've influenced the way I present myself, leading to a transformation that extends beyond professional realms."</p>
           <p className="home-section__testimonial">- Boyd Garnett, CEO of Flexposture.com</p>
-          <button className="home-section__button">Find Your Mentor Today</button>
+          <Link to="/mentors/search"><button className="home-section__button">Find Your Mentor Today</button></Link>
         </div>
         <div className="home-section__image">
           <img className="home-section__img" src={testimonialImage} alt="Placeholder Image" />
@@ -93,6 +93,7 @@ const HomePage = () => {
         <div className="about">
             <Link to="/about" className="about-link">About</Link>
             <Link to="/community" className="about-community">Community</Link>
+            <Link to="/article" className="about-article">Article</Link>
             <Link to="/ressources" className="about-link">Ressources</Link>
         </div>
     </div>

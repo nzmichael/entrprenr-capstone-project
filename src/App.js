@@ -13,19 +13,19 @@ import Community from './pages/CommunityPage/CommunityPage';
 import Ressource from './pages/Ressource/Ressource';
 import MentorSearchForm from './components/MentorSearchForm/MentorSearchForm';
 import SearchResultsPage from './pages/SearchResultsPage/SearchResultsPage';
+import Article from './components/Article/Article';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = async (searchQuery) => {
+  const handleSearch = async (searchResults) => {
     try {
-      const response = await axios.get('http://localhost:8080/search', {
-        params: { name: searchQuery }
-      });
-      setSearchResults(response.data);
-      console.log('Search for:', searchQuery);
+      // const response = await axios.get(`http://localhost:8080/mentors/search?name=${searchQuery}`);
+      setSearchResults(searchResults);
+      console.log('Search for:', searchResults);
+      // console.log(response.data);
     } catch (error) {
-      console.error('Error searching for mentors:', error);
+      console.error('Cannot search for mentors:', error);
     }
   };
 
@@ -39,8 +39,9 @@ function App() {
         <Route path="/mentor-signup" element={<SignUp />} />
         <Route path="/signup" element={<SignUpGen />} />
         <Route path="/about" element={<About />} />
-        <Route path="/community" element={<Community searchResults={searchResults}  />} />
-        <Route path="/search-results" element={<SearchResultsPage searchResults={searchResults} />} />
+        <Route path="/community" element={<Community  />} />
+        <Route path="/mentors/search" element={<SearchResultsPage searchResults={searchResults} />} />
+        <Route path="/article" element={<Article />} />
         {/* <Route path="/ressources" element={<Ressource />} /> */}
       </Routes>
     </Router>

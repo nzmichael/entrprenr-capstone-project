@@ -51,6 +51,10 @@
     .hero-heading {
         padding-bottom: 1rem;
     }
+    
+    .hero-link {
+        text-decoration: none;
+    }
 
     .hero-title {
         color: $blue;
@@ -155,7 +159,7 @@
         position: absolute;
         left: 70%;
         display: flex;
-        top: 60%;
+        top: 40%;
         gap: 0.625rem;
         flex-direction: row;
         }
