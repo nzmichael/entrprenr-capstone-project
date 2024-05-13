@@ -15,6 +15,8 @@
 
 .article-conclusion {
     font-size: 1.2rem;
+    font-family: $avenir-regular, Arial, Helvetica, sans-serif;
+    font-weight: 400;
     color: #666;
     padding-bottom: 1.5rem;
 }
@@ -25,6 +27,9 @@
     background-color: #02497B;
     color: white;
     cursor: pointer;
+    font-family: $avenir-demi, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 section {
@@ -51,4 +56,6 @@ img.article-image {
     color: $blue;
     font-size: 2rem;
     padding-bottom: 1rem;
+    font-family: $avenir-bold, Arial, Helvetica, sans-serif;
+    font-weight: 700;
 }

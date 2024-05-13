@@ -3,34 +3,6 @@
 @import '../../styles/partials/resets';
 @import '../../styles/partials/variables';
 
-// .sign {
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column-reverse;
-//     padding-bottom: 1.5rem;
-//     @include tablet() {
-//         display: flex;
-//         align-items: center;
-//         flex-direction: row;
-//     }
-//     &__items {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//     }
-//     &__title {
-//         padding-top: 1rem;
-//         @include tablet {
-
-//         }
-//     }
-//     &__hero {
-//         display: flex;
-//     }
-//     &__img {
-//         width: 100%;
-//     }
-// }
 
 .sign {
     display: flex;

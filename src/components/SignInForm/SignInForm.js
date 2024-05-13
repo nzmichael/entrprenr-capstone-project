@@ -14,7 +14,7 @@ const SignInForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3000/signin', userData)
+        axios.post('http://localhost:8080/signin', userData)
             .then(response => {
                 console.log(response.data);
             })
@@ -29,7 +29,7 @@ const SignInForm = () => {
                 <input className="form__email-input" type="email" name="email" placeholder="Email" onChange={handleChange} />
             </div>
             <div className="form__password">
-                <input className="form__password--input" type="password" name="password" placeholder="Password" onChange={handleChange} />
+                <input className="form__password--input" type="password" name="password" placeholder="Password" onChange={handleChange} autoComplete="current-password" />
             </div>
             <div className="form__button">
                 <button className="form__btn" type="submit">Sign In</button>

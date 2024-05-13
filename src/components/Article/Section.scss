@@ -9,6 +9,7 @@
   
 .section-title {
     font-size: 1.8rem;
+    font-family: $avenir-bold, Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #333; 
     margin-bottom: 0.625rem;
@@ -16,5 +17,7 @@
   
 .section-content {
     font-size: 1.2rem;
+    font-family: $avenir-regular, Arial, Helvetica, sans-serif;
+    font-weight: 400;
     color: #666; 
 }

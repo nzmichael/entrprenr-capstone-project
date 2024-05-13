@@ -4,17 +4,29 @@
 @import '../../styles/partials/variables';
 
 .mentor-search-form {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    margin-bottom: -10px;
-    gap: 1rem;
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: -57px;
+      gap: 1rem;
+    }
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      margin-bottom: -10px;
+      gap: 1rem;
+    }
+
   
     &__input {
       padding: 8px;
       margin-bottom: 10px;
       width: 200px;
       padding-left: 2rem;
+      font-family: $avenir-regular Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: 0.875rem;
     }
   
     &__filters {
@@ -40,6 +52,9 @@
       border: none;
       cursor: pointer;
       border-radius: 0.625rem;
+      font-family: $avenir-demi, Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
   
       &:hover {
         background-color: #0056b3;

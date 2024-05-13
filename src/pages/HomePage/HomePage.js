@@ -91,6 +91,7 @@ const HomePage = () => {
             <p className="about-description">Our experienced mentors are here to guide you through every step of your startup journey. Whether you need help with business planning, marketing strategies, or simply need advice from someone who's been there, our mentors are here to help.</p>
         </div>
         <div className="about">
+          <Link to="/" className="about-link">Home</Link>
             <Link to="/about" className="about-link">About</Link>
             <Link to="/community" className="about-community">Community</Link>
             <Link to="/article" className="about-article">Article</Link>

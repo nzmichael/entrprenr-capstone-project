@@ -4,24 +4,29 @@
 @import '../../styles/partials/fonts';
 
 .header {
+    @include mobile {
     display: flex;
-    padding-top: 1rem;
     padding-bottom: 1rem;
     align-items: center;
-    justify-content: space-between;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    justify-content: space-around;
+    flex-direction: column;
     width: 100vw;
+    height: 253px;
+    }
     @include tablet {
-        justify-content: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        width: 100vw;
     }
 }
 
 .logo-image {
     width: 75%;
-    @include tablet {
-    width: 7.5rem;
-    }
 }
 
 .search__bar {
@@ -31,7 +36,6 @@
     width: 15rem;
     height: 3rem;
     align-items: center;
-    // margin-top: 1.25rem;
     text-align: center;
     display: flex;
     @include desktop {
@@ -66,12 +70,17 @@
 
 
 .search__icon {
+    @include mobile {
+        position: absolute;
+        left: 0.5rem;
+        top: -0.6rem;
+    }
+    @include tablet {
     color: $mercury;
     position: absolute;
     left: -4rem;
     top: 0.8rem;
-    // left: 1rem;
-    // top: 0.8rem;
+    }
 }
 
 .search__input {
@@ -109,12 +118,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // padding: 0.5rem 1rem;
     position: relative;
-    width: 10rem;
     height: 2.5rem;
     gap: 1rem;
-    // padding-right: 2rem;
+    margin-right: 1rem;
+    padding-right: 1rem;
 
     &-signup {
         border: none;
@@ -138,5 +146,14 @@
 }
 
 .header__account {
+    @include mobile {
+        left: 9rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        top: -5.6rem;
+        position: relative;
+    }
+    @include tablet {
     width: 2rem;
+    }
 }

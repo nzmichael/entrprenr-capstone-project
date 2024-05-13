@@ -43,6 +43,13 @@ const Article = () => {
       <div className="article-link">
         <Link to="/mentors/search" ><button className="article__button">Find Your Mentor Today</button></Link>
       </div>
+      <div className="about">
+          <Link to="/" className="about-link">Home</Link>
+            <Link to="/about" className="about-link">About</Link>
+            <Link to="/community" className="about-community">Community</Link>
+            <Link to="/article" className="about-article">Article</Link>
+            <Link to="/ressources" className="about-link">Ressources</Link>
+        </div>
     </div>
   );
 };

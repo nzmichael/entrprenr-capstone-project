@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.scss';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const values = [
@@ -34,6 +35,13 @@ const About = () => {
           ))}
         </ul>
       </div>
+      <div className="about">
+          <Link to="/" className="about-link">Home</Link>
+            <Link to="/about" className="about-link">About</Link>
+            <Link to="/community" className="about-community">Community</Link>
+            <Link to="/article" className="about-article">Article</Link>
+            <Link to="/ressources" className="about-link">Ressources</Link>
+        </div>
     </div>
   );
 };
