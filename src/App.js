@@ -14,6 +14,9 @@ import Ressource from './pages/Ressource/Ressource';
 import MentorSearchForm from './components/MentorSearchForm/MentorSearchForm';
 import SearchResultsPage from './pages/SearchResultsPage/SearchResultsPage';
 import Article from './components/Article/Article';
+import AccountPageUsers from './components/AccountPageUser/AccountPageUsers';
+import AccountPageMentor from './pages/AccountPageMentor/AccountPageMentor';
+
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -36,12 +39,14 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/mentors/:id" element={<MentorProfilePage />} />
-        <Route path="/mentor-signup" element={<SignUp />} />
-        <Route path="/signup" element={<SignUpGen />} />
+        <Route path="/mentors/signup" element={<SignUp />} />
+        <Route path="/users/signup" element={<SignUpGen />} />
         <Route path="/about" element={<About />} />
         <Route path="/community" element={<Community  />} />
         <Route path="/mentors/search" element={<SearchResultsPage searchResults={searchResults} />} />
         <Route path="/article" element={<Article />} />
+        <Route path="/users/:id" element={<AccountPageUsers />} />
+        <Route path="/mentors/:id" element={<AccountPageMentor />} />
         {/* <Route path="/ressources" element={<Ressource />} /> */}
       </Routes>
     </Router>

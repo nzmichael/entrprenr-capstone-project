@@ -12,15 +12,14 @@ const SignInForm = () => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/signin', userData)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        try {
+            const response = await axios.post('http://localhost:8080/signin', userData);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
