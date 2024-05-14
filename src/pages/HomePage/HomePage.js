@@ -81,7 +81,7 @@ const HomePage = () => {
             ))}
           </div>
         )}
-        <Link to="/signup" className="sign-up-button">Sign Up to Find a Mentor</Link>
+        <Link to="/users/signup" className="sign-up-button">Sign Up to Find a Mentor</Link>
         </div>
         <div className="about-section">
             <h3 className="about__title">Ad.</h3>
