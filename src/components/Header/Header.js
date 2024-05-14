@@ -23,7 +23,12 @@ const Header = ({ onSearch }) => {
     try {
       setLoading(true);
       setError(null);
-      await axios.post('http://localhost:8080/logout');
+      const token = AuthService.getToken();
+      await axios.post('http://localhost:8080/logout', {}, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
     } catch (error) {
       console.error('Error logging out:', error);
       setError('Error logging out. Please try again later.');
@@ -31,6 +36,7 @@ const Header = ({ onSearch }) => {
       setLoading(false);
     }
   };
+  
 
   return (
     <header className="header">

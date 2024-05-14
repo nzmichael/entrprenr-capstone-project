@@ -24,7 +24,6 @@ const SignUpGeneral = () => {
         password,
       });
       console.log('User signed up:', response.data);
-      // Redirect to user dashboard or login page
     } catch (error) {
       console.error('Error signing up user:', error);
       setError('Error signing up user. Please try again later.');
