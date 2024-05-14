@@ -64,7 +64,7 @@ const SignUpPage = () => {
       </p>
 
       <p className="user-signup-link">
-          Not a Mentor? <Link to="/signup">Sign up as an Entrepreneur?</Link>
+          Not a Mentor? <Link to="/users/signup">Sign up as an Entrepreneur?</Link>
         </p>
     </div>
   );

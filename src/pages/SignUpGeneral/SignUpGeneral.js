@@ -54,7 +54,7 @@ const SignUpGeneral = () => {
         Already have an account? <Link to="/signin">Log in</Link>
       </p>
       <p className="mentor-signup-link">
-        Are you a Mentor? <Link to="/mentor-signup">Sign up here</Link>
+        Are you a Mentor? <Link to="/mentors/signup">Sign up here</Link>
       </p>
     </div>
   );

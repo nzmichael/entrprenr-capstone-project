@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import './Header.scss';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './Header.scss';
+import AuthService from '../Authorization/AuthService';
 import logo from '../../assets/logo/logo.png';
 import searchIcon from '../../assets/images/search.svg';
 import accountIcon from '../../assets/images/account.png';
@@ -8,9 +10,26 @@ import MentorSearchForm from '../MentorSearchForm/MentorSearchForm';
 
 const Header = ({ onSearch }) => {
   const [activeFilter, setActiveFilter] = useState('');
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const toggleSearch = (filter) => {
     setActiveFilter(filter === activeFilter ? '' : filter);
+  };
+
+  const user = AuthService.isLoggedIn() ? AuthService.getUserInfo() : null;
+
+  const handleLogout = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      await axios.post('http://localhost:8080/logout');
+    } catch (error) {
+      console.error('Error logging out:', error);
+      setError('Error logging out. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -44,9 +63,15 @@ const Header = ({ onSearch }) => {
         {activeFilter === 'industries' && <MentorSearchForm onSearch={onSearch} />}
       </div>
       <div className="header__buttons">
-        <Link to="/signup">
+        <Link to="/users/signup">
           <img className="header__account" src={accountIcon} />
         </Link>
+        {user && <span className="header__username">Welcome, {user.name}</span>}
+        {user && (
+          <button onClick={handleLogout} disabled={loading}>
+            {loading ? 'Logging out...' : 'Logout'}
+          </button>
+        )}
       </div>
     </header>
   );
