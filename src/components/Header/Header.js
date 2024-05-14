@@ -9,13 +9,9 @@ import accountIcon from '../../assets/images/account.png';
 import MentorSearchForm from '../MentorSearchForm/MentorSearchForm';
 
 const Header = ({ onSearch }) => {
-  const [activeFilter, setActiveFilter] = useState('');
+  const [activeFilter, setActiveFilter] = useState('name');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const toggleSearch = (filter) => {
-    setActiveFilter(filter === activeFilter ? '' : filter);
-  };
 
   const user = AuthService.isLoggedIn() ? AuthService.getUserInfo() : null;
 
@@ -36,7 +32,6 @@ const Header = ({ onSearch }) => {
       setLoading(false);
     }
   };
-  
 
   return (
     <header className="header">
@@ -50,21 +45,18 @@ const Header = ({ onSearch }) => {
           src={searchIcon}
           alt="search icon"
           className="search__icon"
-          onClick={() => toggleSearch('name')}
         />
         {activeFilter === 'name' && <MentorSearchForm onSearch={onSearch} />}
         <img
           src={searchIcon}
           alt="search icon"
           className="search__icon"
-          onClick={() => toggleSearch('specialty')}
         />
         {activeFilter === 'specialty' && <MentorSearchForm onSearch={onSearch} />}
         <img
           src={searchIcon}
           alt="search icon"
           className="search__icon"
-          onClick={() => toggleSearch('industries')}
         />
         {activeFilter === 'industries' && <MentorSearchForm onSearch={onSearch} />}
       </div>
